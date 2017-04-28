@@ -4,6 +4,7 @@
   "description": "Vanuit de cloud je eigen Raspberry Pi RGB-ledstrip besturen",
   "main": "raspberry-pi-rgb-ledstrip.js",
   "scripts": {
+    "start": "node raspberry-pi-rgb-ledstrip.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
