@@ -166,16 +166,16 @@ var tunnel = localtunnel(5037, opt, function(err, tunnel) {
 	// Om de 3 seconde controleren of de url werkt
 	setInterval(function(){
 		request(tunnel.url, function (error, response, body) {
-			if (response.statusCode !== undefined) {
+			try {
 				if (response.statusCode === 502) {
 					console.log('statusCode:', response && response.statusCode); // // print a error code
 					console.log('body:', body); // statusCode: 502 body: no active client for 'mhvr00pcowwqobneq2'.
 					process.exit(1);
 				}
-			}
-			if (error !== null) {
-				console.log('error:', error); // Print the error if one occurred
-			}
+				if (error !== null) {
+					console.log('error:', error); // Print the error if one occurred
+				}
+			} catch (e) {}
 		});
 	}, 3000);
 });
